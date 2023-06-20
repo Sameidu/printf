@@ -1,44 +1,44 @@
 #include "ft_printf.h"
 
-int ft_digits(long nb)
+int	ft_digits(long nb)
 {
-    int check;
-    int len;
+	int	check;
+	int	len;
 
-    len = 0;
-    check = 0;
-    if (nb >= 10)
-    {
-        len = ft_digits(nb / 10);
-        if (len < 0)
-            return (-1);
-    }
-    check = ft_putchar(nb % 10 + 48);
-    if (check < 0)
-        return (-1);
-    len += check;
-    return (len);
+	len = 0;
+	check = 0;
+	if (nb >= 10)
+	{
+		len = ft_digits(nb / 10);
+		if (len < 0)
+			return (-1);
+	}
+	check = ft_putchar(nb % 10 + 48);
+	if (check < 0)
+		return (-1);
+	len += check;
+	return (len);
 }
 
-int ft_putnb(long nb)
+int	ft_putnb(long nb)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    if (nb < 0)
-    {
-        nb *= -1;
-        len = ft_putchar('-');
-        if (len < 0)
-            return (-1);
-    }
-    len += ft_digits(nb);
-    return (len);
+	len = 0;
+	if (nb < 0)
+	{
+		nb *= -1;
+		len = ft_putchar('-');
+		if (len < 0)
+			return (-1);
+	}
+	len += ft_digits(nb);
+	return (len);
 }
 
-int ft_puthex(size_t nb, char c)
+int	ft_puthex(size_t nb, char c)
 {
-    int		i;
+	int		i;
 	int		len;
 	char	string[17];
 	char	*hex;
@@ -65,13 +65,13 @@ int ft_puthex(size_t nb, char c)
 	return (len);
 }
 
-int ft_putp(void *ptr)
+int	ft_putp(void *ptr)
 {
-    int i;
+	int	i;
 
-    i = ft_putstr("0x");
-    if (i < 0)
-        return (-1);
-    i += ft_puthex((size_t)ptr, 'x');
-    return (i);
+	i = ft_putstr("0x");
+	if (i < 0)
+		return (-1);
+	i += ft_puthex((size_t)ptr, 'x');
+	return (i);
 }

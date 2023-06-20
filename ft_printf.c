@@ -10,7 +10,7 @@ int	ft_lenght(va_list args, const char *format, int len)
 	while (format[i])
 	{
 		if (format[i] == '%' && !format[i + 1])
-			break;
+			break ;
 		if (format[i] == '%')
 		{
 			check = ft_format(format[++i], args);
@@ -32,7 +32,7 @@ int	ft_lenght(va_list args, const char *format, int len)
 int	ft_printf(char const *format, ...)
 {
 	va_list	args;
-	int	chars;
+	int		chars;
 
 	chars = 0;
 	if (!format)
