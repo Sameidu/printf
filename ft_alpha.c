@@ -9,7 +9,7 @@ int	ft_putstr(char *str)
 {
 	int	i;
 	
-	i = 0;c
+	i = 0;
 	if (!str)
 	{
 		i += ft_putstr("(null)");

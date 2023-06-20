@@ -21,12 +21,12 @@ int ft_putnum(long nb)
     return (len);
 }
 
-int ft_putex(size_t nb, char c)
+int ft_puthex(size_t nb, char c)
 {
 
 }
 
 int ft_putp(void *ptr)
 {
-    
+
 }
