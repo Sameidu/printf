@@ -1,5 +1,34 @@
 #include "ft_printf.h"
 
+int	ft_lenght(va_list args, const char *format, int len)
+{
+	int	check;
+	int	i;
+
+	i = 0;
+	check = 0;
+	while (format[i])
+	{
+		if (format[i] == '%' && !format[i + 1])
+			break;
+		if (format[i] == '%')
+		{
+			check = ft_format(format[++i], args);
+			if (check < 0)
+				return (-1);
+			len += check;
+		}
+		else
+		{
+			if (ft_putchar(format[i]) < 0)
+				return (-1);
+			len++;
+		}
+		i++;
+	}
+	return (len);
+}
+
 int	ft_printf(char const *format, ...)
 {
 	va_list	args;
@@ -8,4 +37,7 @@ int	ft_printf(char const *format, ...)
 	if (!format)
 		return (0);
 	va_start(args, format);
+	chars = ft_lenght(args, format, chars);
+	va_end(args);
+	return (chars);
 }

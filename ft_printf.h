@@ -5,8 +5,8 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
-int     ft_format(int c, va_list args);
+int ft_putchar(char c);
+int ft_putstr(char *str);
+int ft_format(int c, va_list args);
 
 #endif
