@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_numbers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:57:15 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/06/29 14:58:45 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:07:16 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,8 @@ int	ft_digits(long nb)
 	len = 0;
 	check = 0;
 	if (nb >= 10)
-	{
 		len = ft_digits(nb / 10);
-		if (len < 0)
-			return (-1);
-	}
 	check = ft_putchar(nb % 10 + 48);
-	if (check < 0)
-		return (-1);
 	len += check;
 	return (len);
 }
@@ -41,8 +35,6 @@ int	ft_putnb(long nb)
 	{
 		nb *= -1;
 		len = ft_putchar('-');
-		if (len < 0)
-			return (-1);
 	}
 	len += ft_digits(nb);
 	return (len);
@@ -82,8 +74,6 @@ int	ft_putp(void *ptr)
 	int	i;
 
 	i = ft_putstr("0x");
-	if (i < 0)
-		return (-1);
 	i += ft_puthex((size_t)ptr, 'x');
 	return (i);
 }
