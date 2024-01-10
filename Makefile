@@ -1,28 +1,41 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/10 17:08:17 by smeixoei          #+#    #+#              #
+#    Updated: 2024/01/10 17:55:42 by smeixoei         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
+FLAGS = -Wall -Werror -Wextra
+LIB = ar -rcs
+RM = rm -f
+INCLUDES = ft_printf.h
+SRCS_MAIN = ft_printf.c \
+			ft_numbers.c
 
-SRCS = ft_printf.c \
-		ft_alpha.c \
-		ft_numbers.c
-
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS_MAIN:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-
 %.o: %.c
-	$(CC) $(CFLAGS) $< -o $@
-	ar -crs $(NAME) $@
+	$(CC) -c $(FLAGS) $?
+
+$(NAME): $(OBJS) $(INCLUDES)
+		$(LIB) $(NAME) $(OBJS)
 
 clean:
-	rm -f *.o
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
-.PHONY : clean fclean re
+.PHONY: all clean fclean re

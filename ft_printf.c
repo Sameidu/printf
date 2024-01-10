@@ -3,14 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 15:57:18 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/08/22 09:56:56 by smeixoei         ###   ########.fr       */
+/*   Created: 2024/01/10 17:08:12 by smeixoei          #+#    #+#             */
+/*   Updated: 2024/01/10 17:45:37 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+int	ft_putstr(char *str)
+{
+	int	i;
+	int	txt;
+
+	txt = 0;
+	if (!str)
+	{
+		txt += ft_putstr("(null)");
+		return (txt);
+	}
+	i = 0;
+	while (str[i] != '\0')
+	{
+		txt += ft_putchar(str[i]);
+		i++;
+	}
+	return (txt);
+}
 
 int	ft_format(va_list args, char c)
 {

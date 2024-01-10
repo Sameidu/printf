@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_numbers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 15:57:15 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/08/22 10:07:16 by smeixoei         ###   ########.fr       */
+/*   Created: 2024/01/10 17:08:08 by smeixoei          #+#    #+#             */
+/*   Updated: 2024/01/10 17:08:59 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
